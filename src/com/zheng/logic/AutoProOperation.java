@@ -60,6 +60,17 @@ public class AutoProOperation {
 		return list;
 	}
 
+	// 获取正确的答案
+	public List<String> resultCal(List<String> autoProNum){
+		List<String> result = new ArrayList<>();
+		for (int i = 0; i < autoProNum.size(); i++) {
+			int cal = cal(autoProNum.get(i));
+			result.add(cal + "");
+		}
+		return result;
+		
+	}
+	
 	/**
 	 * 
 	 * @param str

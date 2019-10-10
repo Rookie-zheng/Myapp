@@ -5,7 +5,7 @@ import java.util.List;
 public class test {
 	public static void main(String[] args) {
 		AutoProOperation atp = new AutoProOperation();
-		List<String> list = atp.autoProNum(24, 6);
+		List<String> list = atp.autoProNum(24,10000);
 		for (String string : list) {
 			System.out.println(string);
 		}

@@ -96,7 +96,6 @@ public class AutoProOperation {
 		}
 		return list;
 	}
-
 	// 运算表达式转换成 分数形式
 	public List<String> changeAutoPro() {
 		List<String> result = autoProNumNotInt();
@@ -217,12 +216,8 @@ public class AutoProOperation {
 					if (num1.equals("0")) {
 						continue;
 					}
-					if(numStack.isEmpty()) {
-						boolean b = numStack.isEmpty();
-						System.out.println(b);
-					}
 					num2 = numStack.pop();
-
+					result = num2;
 					oper = operStack.pop();
 					oper1 = oper;
 					while (priority(operStack.peek()) > priority(oper) ) {
@@ -235,7 +230,7 @@ public class AutoProOperation {
 						}
 					}
 					operStr = operStack.peek();
-					result = sumFraction(num2, num1, oper);
+					result = sumFraction(result, num1, oper);
 					numStack.push(result);
 				}
 				numStack.pop();
@@ -438,4 +433,5 @@ public class AutoProOperation {
 			return "/";
 		}
 	}
+
 }

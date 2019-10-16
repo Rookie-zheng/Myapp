@@ -24,6 +24,7 @@ public class Myapp {
 		long startTime = System.currentTimeMillis();
 		AutoProOperation apo = new AutoProOperation(maxValue,n);
 		List<String> autoProNum = apo.autoProNumNotInt();
+		
 		List<String> resultNum = apo.resultCalMatch(autoProNum);
 		// 将运算表达式写入 Exercises.txt 文件
 		sf.storeExTxt(autoProNum);

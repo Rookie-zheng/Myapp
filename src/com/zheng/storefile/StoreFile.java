@@ -7,7 +7,7 @@ import java.util.List;
 
 public class StoreFile {
 
-	// 运算表达式写入 Exercises.txt 文件中
+	// 生成的运算表达式写入 Exercises.txt 文件中
 	public void storeExTxt(List<String> conten) {
 		File file = new File("Exercises.txt");
 		if(!file.exists()) {
@@ -32,12 +32,12 @@ public class StoreFile {
 				fwriter.flush();
 				fwriter.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 	}
 	
+	// 存储答案到 Answers.txt 文件中
 	public void storeAnTxt(List<String> conten) {
 		String filePath = "Answers.txt";
 		File file = new File("Answers.txt");
@@ -62,7 +62,6 @@ public class StoreFile {
 				fwriter.flush();
 				fwriter.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

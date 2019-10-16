@@ -136,6 +136,7 @@ public class AutoProOperation {
 		return result1;
 	}
 
+	// 返回所有生成运算表达式的结果
 	public List<String> resultCalMatch(List<String> autoProNumNotInt) {
 		List<String> result = new ArrayList<>();
 		for (String str : autoProNumNotInt) {
@@ -191,7 +192,7 @@ public class AutoProOperation {
 		return str;
 	}
 
-	// 返回结果
+	// 返回一条运算表达式的结果
 	public String resultCalNotInt(String str) {
 		Stack<String> operStack = new Stack<String>();
 		Stack<String> numStack = new Stack<String>();
@@ -204,22 +205,27 @@ public class AutoProOperation {
 		String num2 = "";
 		String oper = "";
 		String oper1 = "";
-		String numStr = "";
+		String operStr = "";
 		String result = "";
+		String numStr = "";
 		for (int i = 0; i < strSplit.length; i++) {
 			if (strSplit[i].equals(")")) {
 				List<String> newList = new ArrayList<>();
-				numStr = operStack.peek();
-				while (!numStr.equals("(")) {
+				operStr = operStack.peek();
+				while (!operStr.equals("(")) {
 					num1 = numStack.pop();
 					if (num1.equals("0")) {
 						continue;
+					}
+					if(numStack.isEmpty()) {
+						boolean b = numStack.isEmpty();
+						System.out.println(b);
 					}
 					num2 = numStack.pop();
 
 					oper = operStack.pop();
 					oper1 = oper;
-					while (priority(operStack.peek()) > priority(oper)) {
+					while (priority(operStack.peek()) > priority(oper) ) {
 						numStr = numStack.pop();
 						result = sumFraction(numStr, num2, oper1);
 						numStack.push(result);
@@ -228,7 +234,7 @@ public class AutoProOperation {
 							oper1 = operStack.pop();
 						}
 					}
-					numStr = operStack.peek();
+					operStr = operStack.peek();
 					result = sumFraction(num2, num1, oper);
 					numStack.push(result);
 				}
@@ -375,7 +381,6 @@ public class AutoProOperation {
 
 			break;
 		case "*":
-
 			if (fraction1.equals("0") || fraction2.equals("0")) {
 				result = 0 + "";
 			} else {
